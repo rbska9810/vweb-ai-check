@@ -14,12 +14,13 @@ body { font-family: 'pretendard variable', sans-serif; color: #111; background: 
 ul { list-style: none; }
 a { color: inherit; text-decoration: none; }
 .c_blue { color: #3235cd; }
+br.mobile-pc { display: none; }
 
 /* V AI CHECK / 1920 기준 vw */
 .aic_section { position: relative; background: #fff; overflow: hidden; word-break: keep-all; }
 .aic_section::before { content: ""; position: absolute; top: -12vw; right: -10vw; width: 36vw; height: 36vw; border-radius: 50%; background: radial-gradient(circle, rgba(50,53,253,.10) 0%, rgba(50,53,253,0) 70%); pointer-events: none; }
 
-.aic_iner { position: relative; width: 65.1vw; margin: 0 auto; padding: 6.771vw 0 6.25vw; }
+.aic_iner { position: relative; width: 75vw; margin: 0 auto; padding: 6.771vw 0 6.25vw; }
 
 /* 타이틀 */
 .aic_head { position: relative; display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.6vw; }
@@ -35,7 +36,7 @@ a { color: inherit; text-decoration: none; }
 .aic_panel_txt p { font-size: 0.94vw; line-height: 1.6; color: rgba(255,255,255,.75); }
 
 .aic_panel_l { position: relative; z-index: 1; flex: 1; min-width: 0; }
-.aic_form { display: flex; flex-wrap: wrap; gap: 0.5vw; max-width: 30vw; margin-top: 1.9vw; }
+.aic_form { display: flex; flex-wrap: wrap; gap: 0.5vw; max-width: 33vw; margin-top: 1.9vw; }
 .aic_input { flex: 1; min-width: 0; display: flex; align-items: center; height: 3.65vw; padding: 0 1.25vw; border-radius: 0.52vw; background: #fff; }
 .aic_input span { font-family: "Poppins", sans-serif; font-size: 0.94vw; color: #a2b3ca; margin-right: 0.3vw; }
 .aic_input input { flex: 1; min-width: 0; border: 0; outline: 0; font-family: inherit; font-size: 0.94vw; color: #111; background: transparent; }
@@ -48,7 +49,7 @@ a { color: inherit; text-decoration: none; }
 .aic_err.on { display: block; }
 
 /* 스캔 연출 */
-.aic_scan { position: relative; z-index: 1; flex: 0 0 27vw; height: 19.8vw; }
+.aic_scan { position: relative; z-index: 1; flex: 0 0 30vw; height: 21vw; margin-right: 1.5vw; }
 .aic_browser { position: absolute; inset: 0; border-radius: 0.83vw; background: #fff; box-shadow: 0 1.5vw 3.5vw rgba(8,10,90,.35); overflow: hidden; }
 .aic_browser_bar { display: flex; align-items: center; gap: 0.35vw; height: 2.1vw; padding: 0 0.9vw; background: #f3f3ff; border-bottom: 1px solid #e9e9ff; }
 .aic_browser_bar > i { width: 0.5vw; height: 0.5vw; border-radius: 50%; background: #d5d5ef; }
@@ -101,7 +102,7 @@ a { color: inherit; text-decoration: none; }
 .aic_points em { font-family: "Poppins", sans-serif; font-style: normal; font-weight: 700; font-size: 0.83vw; color: #3235cd; }
 .aic_points strong { display: block; margin: 0.8vw 0 0.5vw; font-weight: 700; font-size: 1.25vw; }
 .aic_points strong small { margin-left: 0.4vw; font-family: "Poppins", sans-serif; font-weight: 500; font-size: 0.78vw; color: #a2b3ca; }
-.aic_points p { font-size: 0.83vw; line-height: 1.6; color: #555; }
+.aic_points p { font-size: 0.89vw; line-height: 1.6; color: #555; }
 
 /* 진단 중 */
 .aic_loading { display: none; margin-top: 2.6vw; padding: 2.6vw; border-radius: 1.25vw; background: #f3f3ff; text-align: center; }
@@ -114,7 +115,7 @@ a { color: inherit; text-decoration: none; }
 .aic_result { display: none; margin-top: 2.6vw; }
 .aic_result.on { display: block; animation: aicUp .6s ease both; }
 @keyframes aicUp { from { opacity: 0; transform: translateY(1.5vw); } to { opacity: 1; transform: none; } }
-.aic_result_top { display: grid; grid-template-columns: 21.35vw 1fr; gap: 1.04vw; }
+.aic_result_top { display: grid; grid-template-columns: 24vw 1fr; gap: 1.04vw; }
 
 .aic_score { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2.08vw; border-radius: 1.25vw; background: #111; color: #fff; }
 .aic_score_lab { font-family: "Poppins", sans-serif; font-weight: 500; font-size: 0.78vw; letter-spacing: 0.08vw; color: rgba(255,255,255,.5); }
@@ -238,6 +239,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------- 모바일 ---------- */
 @media screen and (max-width:599px) {
+    br.mobile-pc { display: inline; }
     .aic_iner { width: calc(100% - 40px); padding: 64px 0; }
     .aic_title { font-size: 34px; letter-spacing: -1px; }
     .aic_sub { font-size: 14px; }
@@ -273,8 +275,8 @@ a { color: inherit; text-decoration: none; }
                     <span class="aic_badge">FREE · 1 MINUTE</span>
                     <strong>내 홈페이지 AI 점수 확인하기</strong>
                     <p>
-                        고객은 이제 검색창 대신 ChatGPT · Gemini · 네이버 AI 브리핑에게 묻습니다.<br>
-                        우리 홈페이지가 AI에게 제대로 읽히고 있는지 확인해보세요.
+                        고객은 이제 검색창 대신 AI에게 묻습니다.<br>
+                        우리 홈페이지가 AI에게 <br class="mobile-pc">제대로 읽히고 있는지 확인해보세요.
                     </p>
                 </div>
 
@@ -317,12 +319,12 @@ a { color: inherit; text-decoration: none; }
             <li>
                 <em>01</em>
                 <strong>검색 기본<small>SEO</small></strong>
-                <p>페이지 제목 · 설명 · 제목 구조 · 이미지 설명이 검색엔진에 읽히는지 확인합니다.</p>
+                <p>제목&nbsp;구조 · 메타&nbsp;정보 · 이미지&nbsp;설명이 검색엔진에 읽히는지 확인합니다.</p>
             </li>
             <li>
                 <em>02</em>
                 <strong>AI 이해도<small>AEO</small></strong>
-                <p>FAQ · 구조화 데이터 · 텍스트 콘텐츠로 AI가 답변에 인용하기 좋은지 확인합니다.</p>
+                <p>FAQ · 구조화&nbsp;데이터 · 텍스트&nbsp;콘텐츠로 AI가 답변에 인용하기 좋은지 확인합니다.</p>
             </li>
             <li>
                 <em>03</em>
@@ -332,7 +334,7 @@ a { color: inherit; text-decoration: none; }
             <li>
                 <em>04</em>
                 <strong>기술 기반<small>TECH</small></strong>
-                <p>보안 연결(HTTPS) · 모바일 대응 · 로딩 속도 · 공유 설정을 확인합니다.</p>
+                <p>보안&nbsp;연결(HTTPS) · 모바일&nbsp;대응 · 로딩&nbsp;속도 · 공유&nbsp;설정을 확인합니다.</p>
             </li>
         </ul>
 
@@ -344,7 +346,7 @@ a { color: inherit; text-decoration: none; }
         <div class="aic_result" id="aic_result">
             <div class="aic_result_head">
                 <b id="aic_res_title">진단 결과 예시</b>
-                <span id="aic_res_desc">샘플 홈페이지 기준 화면입니다. 위에 주소를 입력해 직접 확인해보세요.</span>
+                <span id="aic_res_desc">샘플 홈페이지 기준 화면입니다. <br class="mobile-pc">위에 주소를 입력해 직접 확인해보세요.</span>
             </div>
             <div class="aic_result_top">
                 <div class="aic_score">
@@ -378,7 +380,7 @@ a { color: inherit; text-decoration: none; }
             </div>
 
             <div class="aic_cta">
-                <p>진단 결과를 바탕으로 <b>브이웹이 직접 개선해드립니다.</b><br>상세 리포트를 받아보시거나 바로 상담을 신청하세요.</p>
+                <p>진단 결과를 바탕으로 <br class="mobile-pc"><b>브이웹이 직접 개선해드립니다.</b><br>상세 리포트를 받아보시거나 <br class="mobile-pc">바로 상담을 신청하세요.</p>
                 <div class="aic_cta_btns">
                     <a href="#" class="line">상세 리포트 받기</a>
                     <a href="#" class="fill">개선 상담 신청 →</a>
@@ -500,9 +502,9 @@ a { color: inherit; text-decoration: none; }
         $('aic_grade').textContent = grade(total);
         $('aic_res_url').textContent = url;
         $('aic_res_title').textContent = sample ? '진단 결과 예시' : '진단 결과';
-        $('aic_res_desc').textContent = sample
-            ? '샘플 홈페이지 기준 화면입니다. 위에 주소를 입력해 직접 확인해보세요.'
-            : url + ' 진단 결과입니다.';
+        $('aic_res_desc').innerHTML = sample
+            ? '샘플 홈페이지 기준 화면입니다. <br class="mobile-pc">위에 주소를 입력해 직접 확인해보세요.'
+            : url.replace(/[<>&"]/g, '') + ' 진단 결과입니다.';
 
         $('aic_loading').classList.remove('on');
         $('aic_result').classList.add('on');

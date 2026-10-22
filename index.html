@@ -142,6 +142,23 @@ br.mobile-pc { display: none; }
 .aic_issues li { display: flex; gap: 0.8vw; margin-bottom: 0.7vw; font-size: 0.89vw; line-height: 1.55; }
 .aic_issues li em { flex: 0 0 auto; display: flex; justify-content: center; align-items: center; width: 1.35vw; height: 1.35vw; border-radius: 50%; background: #3235cd; color: #fff; font-family: "Poppins", sans-serif; font-style: normal; font-weight: 600; font-size: 0.68vw; }
 
+/* AI 개선 제안 */
+.aic_ai { margin-top: 1.04vw; padding: 2.08vw 2.34vw; border-radius: 1.25vw; border: 1px solid #e9e9ff; background: linear-gradient(135deg, #f3f3ff 0%, #fff 100%); }
+.aic_ai_head { display: flex; align-items: center; gap: 0.7vw; margin-bottom: 1.3vw; }
+.aic_ai_orb { position: relative; display: flex; justify-content: center; align-items: center; width: 2.2vw; height: 2.2vw; border-radius: 50%; background: #111; color: #fff; font-family: "Poppins", sans-serif; font-weight: 700; font-size: 0.68vw; }
+.aic_ai_orb::after { content: ""; position: absolute; inset: -0.25vw; border-radius: 50%; border: 2px solid rgba(50,53,205,.4); animation: aicPulse 2s ease-out infinite; }
+.aic_ai_head h4 { font-weight: 700; font-size: 1.15vw; }
+.aic_ai_head p { margin-left: 0.3vw; font-size: 0.83vw; color: #a2b3ca; }
+.aic_ai_list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.04vw; }
+.aic_ai_list li { display: flex; flex-direction: column; padding: 1.56vw; border-radius: 1.04vw; background: #fff; box-shadow: 0 0.5vw 1.5vw rgba(50,53,205,.07); }
+.aic_ai_lab { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.7vw; font-weight: 700; font-size: 0.94vw; }
+.aic_ai_lab span { padding: 0.2vw 0.6vw; border-radius: 2vw; background: #e9e9ff; color: #3235cd; font-family: "Poppins", sans-serif; font-weight: 600; font-size: 0.63vw; }
+.aic_ai_now { margin-bottom: 0.6vw; font-size: 0.78vw; color: #a2b3ca; }
+.aic_ai_now b { font-weight: 600; color: #ff5a5a; }
+.aic_ai_txt { flex: 1; min-height: 5.5vw; padding: 1vw 1.1vw; border-radius: 0.6vw; background: #f3f3ff; font-size: 0.89vw; line-height: 1.65; color: #111; white-space: pre-line; }
+.aic_ai_txt.typing::after { content: ""; display: inline-block; width: 2px; height: 1em; margin-left: 2px; background: #3235cd; vertical-align: -0.15em; animation: aicCaret .8s steps(1) infinite; }
+@keyframes aicCaret { 50% { opacity: 0; } }
+
 .aic_cta { display: flex; justify-content: space-between; align-items: center; gap: 2vw; margin-top: 1.04vw; padding: 1.56vw 2.34vw; border-radius: 1.25vw; border: 1px solid #e9e9ff; }
 .aic_cta p { font-size: 1.04vw; line-height: 1.5; }
 .aic_cta p b { color: #3235cd; }
@@ -228,6 +245,18 @@ br.mobile-pc { display: none; }
     .aic_issues { margin-top: 20px; padding-top: 18px; }
     .aic_issues li { gap: 10px; margin-bottom: 10px; font-size: 14px; }
     .aic_issues li em { width: 20px; height: 20px; font-size: 11px; }
+    .aic_ai { margin-top: 12px; padding: 24px; border-radius: 18px; }
+    .aic_ai_head { flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+    .aic_ai_orb { width: 32px; height: 32px; font-size: 11px; }
+    .aic_ai_orb::after { inset: -4px; }
+    .aic_ai_head h4 { font-size: 17px; }
+    .aic_ai_head p { flex: 0 0 100%; margin-left: 0; font-size: 13px; }
+    .aic_ai_list { grid-template-columns: 1fr; gap: 10px; }
+    .aic_ai_list li { padding: 20px; border-radius: 14px; }
+    .aic_ai_lab { margin-bottom: 8px; font-size: 15px; }
+    .aic_ai_lab span { padding: 3px 8px; font-size: 10px; border-radius: 20px; }
+    .aic_ai_now { margin-bottom: 8px; font-size: 12px; }
+    .aic_ai_txt { min-height: 0; padding: 14px; border-radius: 8px; font-size: 14px; }
     .aic_cta { flex-direction: column; align-items: stretch; gap: 16px; margin-top: 12px; padding: 24px; border-radius: 18px; }
     .aic_cta p { font-size: 15px; }
     .aic_cta_btns { gap: 8px; }
@@ -379,6 +408,15 @@ br.mobile-pc { display: none; }
                 </div>
             </div>
 
+            <div class="aic_ai" id="aic_ai">
+                <div class="aic_ai_head">
+                    <span class="aic_ai_orb">AI</span>
+                    <h4>AI 개선 제안</h4>
+                    <p>진단 결과를 바탕으로 바로 적용할 수 있는 문구를 AI가 제안합니다.</p>
+                </div>
+                <ul class="aic_ai_list" id="aic_ai_list"></ul>
+            </div>
+
             <div class="aic_cta">
                 <p>진단 결과를 바탕으로 <br class="mobile-pc"><b>브이웹이 직접 개선해드립니다.</b><br>상세 리포트를 받아보시거나 <br class="mobile-pc">바로 상담을 신청하세요.</p>
                 <div class="aic_cta_btns">
@@ -473,6 +511,42 @@ br.mobile-pc { display: none; }
     });
 
     var countTimer = null;
+    var typeTimers = [];
+
+    var SUGGEST = [
+        { lab: '메인 제목 (H1)', text: function (b) { return b + ' 공식 홈페이지 | 메뉴 · 매장 · 창업 안내'; } },
+        { lab: '메타 설명', text: function (b) { return b + ' 공식 홈페이지입니다. 대표 메뉴와 매장 위치, 가맹 창업 절차와 비용을 한 번에 확인하세요.'; } },
+        { lab: 'FAQ 문구', text: function (b) { return 'Q. ' + b + ' 창업 비용은 얼마인가요?\nA. 매장 규모와 입지에 따라 달라집니다. 창업 상담을 신청하시면 예상 비용을 안내해드립니다.'; } }
+    ];
+
+    function brandOf(url, sample) {
+        if (sample) return '샘플브랜드';
+        var b = url.split('/')[0].replace(/^www\./i, '').split('.')[0];
+        return (!b || /^xn--/i.test(b)) ? '브랜드' : b;
+    }
+
+    function typeAll() {
+        typeTimers.forEach(clearInterval);
+        typeTimers = [];
+        document.querySelectorAll('#aic_ai_list .aic_ai_txt').forEach(function (el) {
+            var full = el.dataset.text, n = 0;
+            el.textContent = '';
+            el.classList.add('typing');
+            var t = setInterval(function () {
+                n += 2;
+                el.textContent = full.slice(0, n);
+                if (n >= full.length) { clearInterval(t); el.classList.remove('typing'); }
+            }, 28);
+            typeTimers.push(t);
+        });
+    }
+
+    // 예시 결과는 AI 제안 영역이 보일 때 타이핑 시작
+    var aiIo = new IntersectionObserver(function (es) {
+        if (!es[0].isIntersecting) return;
+        aiIo.disconnect();
+        typeAll();
+    }, { threshold: 0.3 });
 
     function render(url, sample) {
         var rnd = seed(url.toLowerCase());
@@ -501,6 +575,17 @@ br.mobile-pc { display: none; }
         }).join('');
         $('aic_grade').textContent = grade(total);
         $('aic_res_url').textContent = url;
+
+        var brand = brandOf(url, sample);
+        $('aic_ai_list').innerHTML = SUGGEST.map(function (g) {
+            return '<li><p class="aic_ai_lab">' + g.lab + '<span>AI</span></p>' +
+                   '<p class="aic_ai_now">현재 상태 <b>보완 필요</b></p>' +
+                   '<p class="aic_ai_txt"></p></li>';
+        }).join('');
+        document.querySelectorAll('#aic_ai_list .aic_ai_txt').forEach(function (el, k) {
+            el.dataset.text = SUGGEST[k].text(brand);
+            el.textContent = el.dataset.text;
+        });
         $('aic_res_title').textContent = sample ? '진단 결과 예시' : '진단 결과';
         $('aic_res_desc').innerHTML = sample
             ? '샘플 홈페이지 기준 화면입니다. <br class="mobile-pc">위에 주소를 입력해 직접 확인해보세요.'
@@ -526,7 +611,14 @@ br.mobile-pc { display: none; }
             if (cur >= total) clearInterval(countTimer);
         }, 30);
 
-        if (!sample) $('aic_result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (sample) {
+            aiIo.disconnect();
+            aiIo.observe($('aic_ai'));
+        } else {
+            aiIo.disconnect();
+            typeAll();
+            $('aic_result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     }
 
     // 처음부터 예시 결과 노출

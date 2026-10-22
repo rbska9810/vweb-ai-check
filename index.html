@@ -529,13 +529,8 @@ br.mobile-pc { display: none; }
         if (!sample) $('aic_result').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    // 처음부터 예시 결과를 보여준다 (진단 항목 카드가 보이는 시점에 1회)
-    var sampleIo = new IntersectionObserver(function (es) {
-        if (!es[0].isIntersecting) return;
-        sampleIo.disconnect();
-        if (!$('aic_result').classList.contains('on')) render('sample-franchise.co.kr', true);
-    }, { threshold: 0.3 });
-    sampleIo.observe(document.querySelector('.aic_points'));
+    // 처음부터 예시 결과 노출
+    render('sample-franchise.co.kr', true);
 
     // 스크롤 등장
     var io = new IntersectionObserver(function (es) {
